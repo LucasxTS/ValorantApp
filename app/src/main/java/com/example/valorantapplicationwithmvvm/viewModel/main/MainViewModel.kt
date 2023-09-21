@@ -22,7 +22,6 @@ class MainViewModel(private val repository: MainRepository) : ViewModel() {
                 response: Response<AgentsModel>
             ) {
                 liveData.postValue(response.body())
-               println("-------------------deu bom a requisição------------- ")
             }
 
             override fun onFailure(call: Call<AgentsModel>, t: Throwable) {

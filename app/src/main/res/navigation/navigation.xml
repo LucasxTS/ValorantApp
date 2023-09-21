@@ -10,8 +10,10 @@
         android:label="FirstFragment"
         tools:layout="@layout/first_fragmnet">
         <action
-            android:id="@+id/action_firstFragment2_to_descriptionFragment"
-            app:destination="@id/descriptionFragment" />
+            android:id="@+id/fromFirstFragmentToSecondFragment"
+            app:destination="@id/descriptionFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/descriptionFragment"
@@ -19,7 +21,9 @@
         android:label="fragment_description"
         tools:layout="@layout/fragment_description" >
         <action
-            android:id="@+id/action_descriptionFragment_to_firstFragment2"
-            app:destination="@id/firstFragment2" />
+            android:id="@+id/fromSecondFragmentToFirstFragment"
+            app:destination="@id/firstFragment2"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
     </fragment>
 </navigation>

@@ -12,10 +12,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.valorantapplicationwithmvvm.R
 import com.example.valorantapplicationwithmvvm.databinding.AgentsLayoutBinding
+import com.example.valorantapplicationwithmvvm.interfaces.OnItemClickListener
 import com.example.valorantapplicationwithmvvm.models.Agents
 import com.example.valorantapplicationwithmvvm.models.AgentsModel
 
-class RecyclerViewAdapter(private val context: Context, private val onItemClicked : (Agents) -> Unit) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(private val context: Context, private val onItemClick : OnItemClickListener) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     private var agentsList = mutableListOf<Agents>()
 
@@ -25,20 +26,26 @@ class RecyclerViewAdapter(private val context: Context, private val onItemClicke
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(binding: AgentsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: AgentsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
 
         val agentName = binding.agentName
         val agentRole = binding.agentRole
         val agentImage = binding.agentImage
         val background = binding.background
 
+
         fun bind(agents: Agents) {
             agentName.text = agents.displayName
             agentRole.text = agents.role?.displayName
-
             background.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#${agents.backgroundGradientColors.first().take(6)}"))
-
             val url = agents.fullPortrait
+
+            binding.root.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick.onItemClick(position)
+                }
+            }
 
             val requestOptions = RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background)

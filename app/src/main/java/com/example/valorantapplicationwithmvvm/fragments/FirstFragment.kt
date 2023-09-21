@@ -9,17 +9,19 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.valorantapplicationwithmvvm.R
 import com.example.valorantapplicationwithmvvm.adapters.RecyclerViewAdapter
 import com.example.valorantapplicationwithmvvm.databinding.FirstFragmnetBinding
+import com.example.valorantapplicationwithmvvm.interfaces.OnItemClickListener
 import com.example.valorantapplicationwithmvvm.repositories.MainRepository
 import com.example.valorantapplicationwithmvvm.retrofitService.RetrofitService
 import com.example.valorantapplicationwithmvvm.viewModel.main.MainViewModel
 import com.example.valorantapplicationwithmvvm.viewModel.main.MainViewModelFactory
 
-class FirstFragment() : Fragment(R.layout.first_fragmnet) {
+class FirstFragment() : Fragment(R.layout.first_fragmnet), OnItemClickListener {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: RecyclerViewAdapter
@@ -51,6 +53,9 @@ class FirstFragment() : Fragment(R.layout.first_fragmnet) {
         super.onViewCreated(view, savedInstanceState)
         binding = FirstFragmnetBinding.bind(view)
         setupRecyclerView()
+        binding.title.setOnClickListener {
+            findNavController().navigate(R.id.fromFirstFragmentToSecondFragment)
+        }
     }
 
     override fun onStart() {
@@ -80,9 +85,13 @@ class FirstFragment() : Fragment(R.layout.first_fragmnet) {
         recyclerView = binding.recyclerView
         val layoutManager = GridLayoutManager(requireContext(), 2)
         recyclerView.layoutManager = layoutManager
-        adapter = RecyclerViewAdapter(requireContext(), {
-
-        })
+        adapter = RecyclerViewAdapter(requireContext(), this)
         recyclerView.adapter = adapter
+    }
+
+    override fun onItemClick(position: Int) {
+        val agents = viewModel.liveData.value?.data
+        val agentClicked = agents?.get(position)
+        findNavController().navigate(R.id.fromFirstFragmentToSecondFragment)
     }
 }
