@@ -10,7 +10,8 @@ data class Agents(
     val displayName: String?,
     val fullPortrait: String?,
     val role: Role?,
-    val backgroundGradientColors: List<String>
+    val backgroundGradientColors: List<String>,
+    val isPlayableCharacter: Boolean
 ) : Serializable
 
 data class Role(

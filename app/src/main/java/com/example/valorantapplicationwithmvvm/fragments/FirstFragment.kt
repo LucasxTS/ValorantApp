@@ -76,7 +76,7 @@ class FirstFragment() : Fragment(R.layout.first_fragmnet), OnItemClickListener {
         })
 
         viewModel.errorMessage.observe(this, Observer { message ->
-            println("ta pegano é nada kk")
+            println("An error occurred")
         })
 
     }
