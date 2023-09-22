@@ -53,9 +53,6 @@ class FirstFragment() : Fragment(R.layout.first_fragmnet), OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         binding = FirstFragmnetBinding.bind(view)
         setupRecyclerView()
-        binding.title.setOnClickListener {
-            findNavController().navigate(R.id.fromFirstFragmentToSecondFragment)
-        }
     }
 
     override fun onStart() {

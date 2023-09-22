@@ -31,8 +31,6 @@ class MainViewModel(private val repository: MainRepository) : ViewModel() {
             }
 
         }
-
-
     }
 
      fun filterAgents(agents: List<Agents>): List<Agents> {
