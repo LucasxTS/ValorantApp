@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.valorantapplicationwithmvvm.R
 import com.example.valorantapplicationwithmvvm.databinding.AgentsLayoutBinding
+import com.example.valorantapplicationwithmvvm.glideModule.GlideModule
 import com.example.valorantapplicationwithmvvm.interfaces.OnItemClickListener
 import com.example.valorantapplicationwithmvvm.models.Agents
 import com.example.valorantapplicationwithmvvm.models.AgentsModel
@@ -46,15 +47,7 @@ class RecyclerViewAdapter(private val context: Context, private val onItemClick 
                     onItemClick.onItemClick(position)
                 }
             }
-
-            val requestOptions = RequestOptions()
-                .placeholder(R.drawable.ic_launcher_background)
-                .error(R.drawable.ic_launcher_background)
-
-            Glide.with(context)
-                .applyDefaultRequestOptions(requestOptions)
-                .load(url)
-                .into(agentImage)
+            GlideModule.setImage(binding.agentImage, context, agents.fullPortrait)
 
         }
     }

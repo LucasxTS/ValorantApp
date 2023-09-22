@@ -25,5 +25,9 @@
             app:destination="@id/firstFragment2"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
+        <argument
+            android:name="agents"
+            app:argType="com.example.valorantapplicationwithmvvm.models.Agents"
+            app:nullable="true" />
     </fragment>
 </navigation>

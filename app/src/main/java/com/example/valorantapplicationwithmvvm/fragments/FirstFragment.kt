@@ -92,6 +92,7 @@ class FirstFragment() : Fragment(R.layout.first_fragmnet), OnItemClickListener {
     override fun onItemClick(position: Int) {
         val agents = viewModel.liveData.value?.data
         val agentClicked = agents?.get(position)
-        findNavController().navigate(R.id.fromFirstFragmentToSecondFragment)
+        val action = FirstFragmentDirections.fromFirstFragmentToSecondFragment(agentClicked)
+     findNavController().navigate(action)
     }
 }
