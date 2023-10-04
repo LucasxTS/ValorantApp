@@ -29,17 +29,16 @@ class DescriptionFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.backButton.setOnClickListener {
-            findNavController().navigate(R.id.fromSecondFragmentToFirstFragment)
-        }
         bindingAgents()
     }
 
     private fun bindingAgents() {
         binding.descriptionAgentName.text = args.agents?.displayName
         binding.descriptionAgentRole.text = args.agents?.role?.displayName
+
         binding.background.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#${args.agents?.backgroundGradientColors?.first()
             ?.take(6)}"))
         GlideModule.setImage(binding.descriptionAgentImage, requireContext(), args.agents?.fullPortrait)
+
     }
 }

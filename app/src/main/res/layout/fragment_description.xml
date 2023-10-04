@@ -1,52 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.DescriptionFragment">
 
     <LinearLayout
         android:id="@+id/background"
-        android:background="@color/red"
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:layout_height="240dp"
+        android:background="@color/phoenix_color"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/back_button"
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@drawable/baseline_arrow_forward_24"
-            android:rotation="180"/>
+        <LinearLayout
 
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/description_agent_name"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="40dp"
-            android:textSize="36sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="OMEN"/>
+            <TextView
+                android:id="@+id/descriptionAgentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="O M E N"
+                android:textColor="@color/white"
+                android:textSize="32dp" />
 
-        <TextView
-            android:id="@+id/description_agent_role"
-            android:textColor="@color/white"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Controller"
-            android:layout_marginLeft="-80dp"
-            android:layout_marginTop="100dp"/>
+            <TextView
+                android:id="@+id/descriptionAgentRole"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Controller"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/description_agent_image"
-                android:translationZ="1dp"
-                android:scaleType="fitCenter"
+                android:id="@+id/descriptionAgentImage"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/phoenix"/>
+                android:scaleType="fitXY"
+                android:src="@drawable/omen" />
+        </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backgroundDescriptionColor"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="// BIOGRAPHY"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="A phantom of a memory, Omen hunts in the shadows. He renders enemies blind, teleports across the field, then lets paranoia take hold as his foe scrambles to uncover where he might strike next."
+                android:textColor="@color/gray" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="// SPECIAL ABILITIES"
+                android:textColor="@color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/abilities_layout" />
+        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>

@@ -2,7 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="phoenix_color">#F9F1BF</color>
+    <color name="phoenix_color">#6768CA</color>
     <color name="red">#FF0000</color>
-
+    <color name="backgroundDescriptionColor">#0F1923</color>
+    <color name="gray">#808080</color>
+    <color name="backgroundImageSkill">#1E2B3F</color>
 </resources>
