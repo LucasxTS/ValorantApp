@@ -44,7 +44,7 @@ class FirstFragment() : Fragment(R.layout.first_fragmnet), OnItemClickListener {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FirstFragmnetBinding.inflate(inflater, container, false)
         return binding.root
     }

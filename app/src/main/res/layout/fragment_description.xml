@@ -27,7 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="O M E N"
                 android:textColor="@color/white"
-                android:textSize="32dp" />
+                android:textSize="32sp" />
 
             <TextView
                 android:id="@+id/descriptionAgentRole"
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="Controller"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -68,9 +68,10 @@
                 android:layout_height="wrap_content"
                 android:text="// BIOGRAPHY"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/biography"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -83,7 +84,7 @@
                 android:layout_marginTop="30dp"
                 android:text="// SPECIAL ABILITIES"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -93,9 +94,10 @@
             android:layout_marginEnd="20dp">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/descriptionRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:listitem="@layout/abilities_layout" />
+                tools:listitem="@layout/abilities_layout"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

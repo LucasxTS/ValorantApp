@@ -7,6 +7,7 @@ data class AgentsModel(
 ) : Serializable
 
 data class Agents(
+    val description: String,
     val displayName: String?,
     val fullPortrait: String?,
     val role: Role?,

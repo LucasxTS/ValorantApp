@@ -17,7 +17,10 @@ import com.example.valorantapplicationwithmvvm.interfaces.OnItemClickListener
 import com.example.valorantapplicationwithmvvm.models.Agents
 import com.example.valorantapplicationwithmvvm.models.AgentsModel
 
-class RecyclerViewAdapter(private val context: Context, private val onItemClick : OnItemClickListener) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+class RecyclerViewAdapter(
+    private val context: Context,
+    private val onItemClick: OnItemClickListener
+) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 
     private var agentsList = mutableListOf<Agents>()
 
@@ -27,18 +30,23 @@ class RecyclerViewAdapter(private val context: Context, private val onItemClick 
         notifyDataSetChanged()
     }
 
-    inner class ViewHolder(private val binding: AgentsLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class ViewHolder(private val binding: AgentsLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         val agentName = binding.agentName
         val agentRole = binding.agentRole
-        val agentImage = binding.agentImage
         val background = binding.background
-
 
         fun bind(agents: Agents) {
             agentName.text = agents.displayName
             agentRole.text = agents.role?.displayName
-            background.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#${agents.backgroundGradientColors.first().take(6)}"))
+            background.backgroundTintList = ColorStateList.valueOf(
+                Color.parseColor(
+                    "#${
+                        agents.backgroundGradientColors.first().take(6)
+                    }"
+                )
+            )
             val url = agents.fullPortrait
 
             binding.root.setOnClickListener {
