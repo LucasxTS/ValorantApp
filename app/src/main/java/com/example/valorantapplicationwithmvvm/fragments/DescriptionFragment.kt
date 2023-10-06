@@ -44,7 +44,7 @@ class DescriptionFragment : Fragment() {
     }
 
     private fun bindingAgents() {
-        binding.descriptionAgentName.text = args.agents?.displayName
+        binding.descriptionAgentName.text = args.agents?.displayName?.uppercase() ?: ""
         binding.descriptionAgentRole.text = args.agents?.role?.displayName
         binding.biography.text = args.agents?.description
         binding.background.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#${args.agents?.backgroundGradientColors?.first()

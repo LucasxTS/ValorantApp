@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/firstFragment2">
+    app:startDestination="@id/home">
     <fragment
-        android:id="@+id/firstFragment2"
+        android:id="@+id/home"
         android:name="com.example.valorantapplicationwithmvvm.fragments.FirstFragment"
-        android:label="FirstFragment"
+        android:label="Home"
         tools:layout="@layout/first_fragmnet">
         <action
             android:id="@+id/fromFirstFragmentToSecondFragment"
@@ -18,11 +18,11 @@
     <fragment
         android:id="@+id/descriptionFragment"
         android:name="com.example.valorantapplicationwithmvvm.fragments.DescriptionFragment"
-        android:label="fragment_description"
+        android:label="Agent_Description"
         tools:layout="@layout/fragment_description" >
         <action
             android:id="@+id/fromSecondFragmentToFirstFragment"
-            app:destination="@id/firstFragment2"
+            app:destination="@id/home"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right" />
         <argument
@@ -30,4 +30,8 @@
             app:argType="com.example.valorantapplicationwithmvvm.models.Agents"
             app:nullable="true" />
     </fragment>
+    <fragment
+        android:id="@+id/gun"
+        android:name="com.example.valorantapplicationwithmvvm.fragments.gunsFragments.GunFragment"
+        android:label="GunFragment" />
 </navigation>

@@ -26,7 +26,6 @@ class MainViewModel(private val repository: MainRepository) : ViewModel() {
             val request = repository.getAllData().awaitResponse()
             if (request.isSuccessful) {
                 liveData.postValue(request.body())
-                println(request.body())
             } else {
                 errorMessage.postValue(request.toString())
             }
